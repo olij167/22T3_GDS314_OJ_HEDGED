@@ -65,37 +65,37 @@ namespace Toolbelt_OJ
             moveDirection = moveDirection.normalized * moveSpeed;
             moveDirection.y = yStore;
 
-            if (!controller.isGrounded)
-            {
-                isJumping = true;
-            }
+            //if (!controller.isGrounded)
+            //{
+            //    isJumping = true;
+            //}
 
-            if (controller.isGrounded && !isJumping)
-            {
-                //moveDirection.y = 0f;
-                if (Input.GetButtonDown("Jump"))
-                {
-                    moveDirection.y = jumpForce;
+            //if (controller.isGrounded && !isJumping)
+            //{
+            //    //moveDirection.y = 0f;
+            //    if (Input.GetButtonDown("Jump"))
+            //    {
+            //        moveDirection.y = jumpForce;
 
-                    if (audioSource.isPlaying)
-                    {
-                        audioSource.Stop();
-                    }
-                }
+            //        if (audioSource.isPlaying)
+            //        {
+            //            audioSource.Stop();
+            //        }
+            //    }
 
-                if (controller.velocity.magnitude > 2f && !audioSource.isPlaying)
-                {
-                    //audioSource.volume = Random.Range(0.25f, 0.35f);
-                    audioSource.pitch = Random.Range(0.8f, 1.1f);
-                    audioSource.PlayOneShot(footstepSounds[Random.Range(0, footstepSounds.Count)]);
-                }
+            //    if (controller.velocity.magnitude > 2f && !audioSource.isPlaying)
+            //    {
+            //        //audioSource.volume = Random.Range(0.25f, 0.35f);
+            //        audioSource.pitch = Random.Range(0.8f, 1.1f);
+            //        audioSource.PlayOneShot(footstepSounds[Random.Range(0, footstepSounds.Count)]);
+            //    }
 
-            }
-            else if (controller.isGrounded && isJumping)
-            {
-                audioSource.PlayOneShot(jumpSounds[Random.Range(0, jumpSounds.Count)]);
-                isJumping = false;
-            }
+            //}
+            //else if (controller.isGrounded && isJumping)
+            //{
+            //    audioSource.PlayOneShot(jumpSounds[Random.Range(0, jumpSounds.Count)]);
+            //    isJumping = false;
+            //}
 
             switch (Input.GetKey(KeyCode.LeftShift))
             {
