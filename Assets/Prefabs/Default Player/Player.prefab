@@ -28,8 +28,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1253661755}
-  m_LocalRotation: {x: 0.10356211, y: -0, z: -0, w: 0.994623}
-  m_LocalPosition: {x: 0, y: 2.7900002, z: -2.95}
+  m_LocalRotation: {x: -0.14863789, y: -0, z: -0, w: 0.9888917}
+  m_LocalPosition: {x: 0, y: 1.37, z: -5.68}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -59,11 +59,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
+  near clip plane: 0.1
+  far clip plane: 5000
   field of view: 60
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 6.5232596
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -705,7 +705,6 @@ MonoBehaviour:
   moveSpeed: 0
   maxStamina: 0
   jumpForce: 4
-  isJumping: 0
   moveDirection: {x: 0, y: 0, z: 0}
   gravScale: 1
   footstepSounds:
@@ -719,11 +718,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7d443de498194074bbaf7399c82333ca, type: 3}
   - {fileID: 8300000, guid: 3733a13f38a14f74997bb13ec85590fb, type: 3}
   - {fileID: 8300000, guid: 3f46be47804f2f64db2c0295e6e495ac, type: 3}
-  jumpSounds:
-  - {fileID: 8300000, guid: f6a39d815530f8b4bb4ad26c6bd3ef21, type: 3}
-  - {fileID: 8300000, guid: 54a077e1a221a8c419a6aca8d48b1307, type: 3}
-  - {fileID: 8300000, guid: c8839754072fac8419d8460c3bee50e2, type: 3}
-  - {fileID: 8300000, guid: 8e464d0e8b4d6bf48b65c4be5ecd3d60, type: 3}
 --- !u!82 &7085695486978626219
 AudioSource:
   m_ObjectHideFlags: 0

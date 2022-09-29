@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2764028729713253949}
   - component: {fileID: 7682230560295288503}
   - component: {fileID: 8486156394604016500}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Neg X Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 752194928929189343}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.5, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 1, z: 1.1}
   m_ConstrainProportionsScale: 0
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 5019328272984796001}
   - component: {fileID: 3989233144986595859}
   - component: {fileID: 5867169091370559516}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pos Z Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 920866965941398985}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.5}
   m_LocalScale: {x: 1.1, y: 1, z: 0.1}
   m_ConstrainProportionsScale: 0
@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 7201536701326403173}
   - component: {fileID: 7107026796539700194}
   - component: {fileID: 7206128504403362266}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Neg Z Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,7 +220,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3141087736156303020}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.5}
   m_LocalScale: {x: 1.1, y: 1, z: 0.1}
   m_ConstrainProportionsScale: 0
@@ -372,7 +372,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6065435831066514927}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.5, z: 0}
   m_LocalScale: {x: 1.1, y: 0.1, z: 1.1}
   m_ConstrainProportionsScale: 0
@@ -455,7 +455,7 @@ GameObject:
   - component: {fileID: 6974993051134888920}
   - component: {fileID: 3009836936328803095}
   - component: {fileID: 3228637239265319548}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pos X Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -469,7 +469,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7838047208015638849}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.5, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 1, z: 1.1}
   m_ConstrainProportionsScale: 0

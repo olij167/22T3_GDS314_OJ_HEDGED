@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
-using Cinemachine;
 
 namespace Toolbelt_OJ
 {
@@ -16,29 +16,32 @@ namespace Toolbelt_OJ
         [HideInInspector] public float moveSpeed, maxStamina;
         //public Rigidbody theRB;
         public float jumpForce = 4f;
-        public bool isJumping;
+        //public bool isJumping;
         private CharacterController controller;
 
         [HideInInspector] public Vector3 moveDirection;
         public float gravScale = 1.0f;
 
-        public List<AudioClip> footstepSounds, jumpSounds;
+        public List<AudioClip> footstepSounds/*, jumpSounds*/;
         AudioSource audioSource;
+        [SerializeField] private AudioSource staminaSource;
 
-        //private Slider staminaBar;
-        //private GameObject zoomText;
+        private Slider staminaBar;
+        private GameObject zoomText;
 
+        private UIController staminaUIController;
         void Start()
         {
             moveSpeed = baseSpeed;
 
-            //staminaBar = GameObject.FindGameObjectWithTag("StaminaBar").GetComponent<Slider>();
+            staminaBar = GameObject.FindGameObjectWithTag("StaminaBar").GetComponent<Slider>();
+            staminaUIController = GameObject.FindGameObjectWithTag("StaminaBar").GetComponent<UIController>();
 
-            //zoomText = staminaBar.transform.GetChild(1).gameObject;
+            zoomText = staminaBar.transform.GetChild(1).gameObject;
 
             maxStamina = stamina;
 
-            //staminaBar.maxValue = maxStamina;
+            staminaBar.maxValue = maxStamina;
 
 
             //theRB = GetComponent<Rigidbody>();
@@ -70,27 +73,27 @@ namespace Toolbelt_OJ
             //    isJumping = true;
             //}
 
-            //if (controller.isGrounded && !isJumping)
-            //{
-            //    //moveDirection.y = 0f;
-            //    if (Input.GetButtonDown("Jump"))
-            //    {
-            //        moveDirection.y = jumpForce;
+            if (controller.isGrounded /*&& !isJumping*/)
+            {
+                //moveDirection.y = 0f;
+                //if (Input.GetButtonDown("Jump"))
+                //{
+                //    moveDirection.y = jumpForce;
 
-            //        if (audioSource.isPlaying)
-            //        {
-            //            audioSource.Stop();
-            //        }
-            //    }
+                //    if (audioSource.isPlaying)
+                //    {
+                //        audioSource.Stop();
+                //    }
+                //}
 
-            //    if (controller.velocity.magnitude > 2f && !audioSource.isPlaying)
-            //    {
-            //        //audioSource.volume = Random.Range(0.25f, 0.35f);
-            //        audioSource.pitch = Random.Range(0.8f, 1.1f);
-            //        audioSource.PlayOneShot(footstepSounds[Random.Range(0, footstepSounds.Count)]);
-            //    }
+                if (controller.velocity.magnitude > 2f && !audioSource.isPlaying)
+                {
+                    audioSource.volume = Random.Range(0.25f, 0.35f);
+                    audioSource.pitch = Random.Range(1f, 1.2f);
+                    audioSource.PlayOneShot(footstepSounds[Random.Range(0, footstepSounds.Count)]);
+                }
 
-            //}
+            }
             //else if (controller.isGrounded && isJumping)
             //{
             //    audioSource.PlayOneShot(jumpSounds[Random.Range(0, jumpSounds.Count)]);
@@ -105,22 +108,29 @@ namespace Toolbelt_OJ
                         {
                             moveSpeed = sprintSpeed;
                             stamina -= Time.deltaTime * staminaDecreaseRate;
-                            //zoomText.SetActive(true);
+                            zoomText.SetActive(true);
                             audioSource.pitch = Random.Range(1.3f, 1.6f);
-
+                            staminaUIController.sizeLerp = true;
 
                         }
                         else
                         {
                             moveSpeed = baseSpeed;
-                            //zoomText.SetActive(false);
+                            zoomText.SetActive(false);
+                            staminaUIController.sizeLerp = false;
+                            staminaUIController.ResetSize(staminaBar.image, staminaUIController.imageStartScale);
+
+                            if(!staminaSource.isPlaying)
+                                staminaSource.Play();
                         }
                         break;
                     }
                 case false:
                     {
                         moveSpeed = baseSpeed;
-                        //zoomText.SetActive(false);
+                        zoomText.SetActive(false);
+                        staminaUIController.sizeLerp = false;
+                        staminaUIController.ResetSize(staminaBar.image, staminaUIController.imageStartScale);
 
                         if (stamina <= maxStamina)
                         {
@@ -130,7 +140,7 @@ namespace Toolbelt_OJ
                     }
             }
 
-            //staminaBar.value = stamina;
+            staminaBar.value = stamina;
 
             moveDirection.y = moveDirection.y + (Physics.gravity.y * gravScale * Time.deltaTime);
             controller.Move(moveDirection * Time.deltaTime);

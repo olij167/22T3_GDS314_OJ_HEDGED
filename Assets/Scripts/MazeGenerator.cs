@@ -18,7 +18,16 @@ public class MazeGenerator : MonoBehaviour
     {
         //StartCoroutine(GenerateMaze(mazeSize));
         GenerateMazeInstant(mazeSize);
+
+        gameObject.transform.localScale = new Vector3(10, 5, 10);
+
         SpawnEntities();
+
+        // Recalculate all graphs
+        AstarPath.active.Scan();
+
+        Time.timeScale = 1;
+
     }
 
     void GenerateMazeInstant(Vector2Int size)
@@ -39,8 +48,13 @@ public class MazeGenerator : MonoBehaviour
         List<MazeNode> currentPath = new List<MazeNode>();
         List<MazeNode> completedNodes = new List<MazeNode>();
 
-        // Choose starting nodes
+        // Choose starting node
         currentPath.Add(nodes[Random.Range(0, nodes.Count)]);
+
+        //Choose Spawn Points
+        playerSpawnNode = nodes[0].transform.position;
+        chaserSpawnNode = nodes[Random.Range(5, nodes.Count)].transform.position;
+        exitSpawnNode = nodes[nodes.Count - 1].transform.position;
 
         //currentPath[0].SetState(NodeState.Current);
 
@@ -137,9 +151,7 @@ public class MazeGenerator : MonoBehaviour
             }
         }
 
-        playerSpawnNode = nodes[Random.Range(0, nodes.Count)].transform.position;
-        chaserSpawnNode = nodes[Random.Range(0, nodes.Count)].transform.position;
-        exitSpawnNode = nodes[Random.Range(0, nodes.Count)].transform.position;
+        
 
     }
 
@@ -171,7 +183,7 @@ public class MazeGenerator : MonoBehaviour
         List<MazeNode> currentPath = new List<MazeNode>();
         List<MazeNode> completedNodes = new List<MazeNode>();
 
-        // Choose starting nodes
+        // Choose starting node
         currentPath.Add(nodes[Random.Range(0, nodes.Count)]);
 
         currentPath[0].SetState(NodeState.Current);

@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - StaminaBar
+  - Chaser
+  - Goal
+  - EndPanel
+  - GameTimer
+  - Music
   layers:
   - Default
   - TransparentFX
@@ -13,8 +19,8 @@ TagManager:
   - UI
   - Player
   - AI
-  - 
-  - 
+  - Wall
+  - Goal
   - 
   - 
   - 
